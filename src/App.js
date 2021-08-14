@@ -112,7 +112,13 @@ function App() {
       <header className="App-header">
         <div className="left">
           <span className="left__icon"><FaFacebookF /></span>
-          <input type="text" className="left__search" placeholder="Tìm kiếm trên Facebook" />
+          <input type="text" className="left__search" placeholder="Tìm kiếm trên Facebook" list="listdata" />
+          <datalist id="listdata">
+            <option value="ReactJS - Việt Nam"/>
+            <option value="Sinh viên K19 ITC"/>
+            <option value="Lan Anh"/>
+            <option value="Anh Thư"/>
+          </datalist>
         </div>
 
         <div className="middle">
