@@ -171,6 +171,7 @@ function App() {
           <div className="story-layout">
 
             <div className="story story--create">
+              <img src={avatar} alt="" className="story__image" />
               <span className="story__btn-add"><IoMdAddCircle /></span>
             </div>
 
