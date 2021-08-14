@@ -30,7 +30,6 @@ import friend3 from './assets/images/friend-avatar-3.jpg';
 import friend4 from './assets/images/friend-avatar-4.jpeg';
 import gearvnAvatar from './assets/images/gearvn-avatar.jpg';
 import gearvnNews1 from './assets/images/gearvn-news(1).jpg';
-import gearvnNews2 from './assets/images/gearvn-news(2).jpg';
 
 import { BsSearch } from 'react-icons/bs';
 import { FaEdit } from 'react-icons/fa';
@@ -127,7 +126,7 @@ function App() {
         <div className="right">
           <div className="account account--right-header">
             <img src={avatar} alt="" className="account-avatar" />
-            <span className="account__name">Nguyen</span>
+            <span className="account__name">Avicii</span>
           </div>
           <div className="right-item"><BsGrid3X3GapFill className="right-item__icon"></BsGrid3X3GapFill></div>
           <div className="right-item"><FaFacebookMessenger className="right-item__icon"></FaFacebookMessenger></div>
