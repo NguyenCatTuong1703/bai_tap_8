@@ -1,13 +1,29 @@
 @import './variables';
 
+@mixin laptop-s {
+  @media (max-width: 1024px) {
+    @content
+  }
+};
+
 @mixin tablet {
   @media (max-width: 768px) {
     @content
   }
-}
+};
+
+@mixin mobile {
+  @media (max-width: 425px) {
+    @content
+  }
+};
 
 .App {
   background-color: #3A3B3C;
+
+  @include mobile() {
+    background-color: white;
+  }
 
   &-header {
     display: flex;
@@ -18,7 +34,7 @@
     justify-content: space-between;
     align-items: center;
     color: lightgray;
-    font-size: 25px;
+    font-size: 1.6rem;
     padding: 5px 15px 0px;
     border-bottom: 1px solid gray;
 
@@ -27,12 +43,17 @@
       display: flex;
       gap: 10px;
 
+      @include mobile() {
+        display: none;
+      }
+
       &__icon {
         background-color: $main-color;
         border-radius: 50%;
         width: $h-header-item;
         height: $h-header-item;
-        padding: 2px;
+        font-size: 3rem;
+        padding: 5px;
         color: white;
 
         &:hover {
@@ -45,7 +66,7 @@
         border-radius: 20px;
         background-color: lightgray;
         padding: 10px;
-        font-size: 15px;
+        font-size: 1.4rem;
         width: 60%;
 
         @include tablet {
@@ -68,7 +89,7 @@
       &__item {
         width: 20%;
         padding: 10px;
-        font-size: 2rem;
+        font-size: 2.5rem;
 
         @include tablet() {
           padding: 10px;
@@ -83,7 +104,7 @@
 
         &--active {
           color: $main-color;
-          border-bottom: 5px solid $main-color;
+          border-bottom: 3px solid $main-color;
 
           &:hover {
             opacity: 1;
@@ -101,6 +122,10 @@
       align-items: center;
       color: white;
       gap: 10px;
+      
+      @include mobile() {
+        display: none;
+      }
 
       &-item {
         background-color: rgb(122, 120, 120);
@@ -113,11 +138,11 @@
         transition: .2s ease;
 
         &__icon {
-          font-size: $size-right-icon;
+          font-size: 2rem;
           margin: auto;
 
           &--dropdown {
-            margin-top: 0px;
+            margin-top: 3px;
           }
         }
 
@@ -139,6 +164,11 @@
     transition: .2s ease;
 
     &--right-header {
+
+      @include laptop-s() {
+        display: none;
+      }
+
       @include tablet {
         display: none;
       }
@@ -162,7 +192,7 @@
     }
 
     &__name {
-      font-size: 15px;
+      font-size: 1.6rem;
       font-weight: bold;
     }
   }
@@ -195,8 +225,12 @@
       &__icon {
         width: $size-sidebar-item;
         height: $size-sidebar-item;
-        font-size: $size-sidebar-item - 10px;
+        font-size: 3rem;
         text-align: center;
+      }
+
+      &__subtitle {
+        font-size: 1.6rem;
       }
 
       &:hover {
@@ -234,7 +268,7 @@
         flex-direction: column;
 
         .shortcut-title {
-          font-size: 1.2rem;
+          font-size: 1.6rem;
           padding: 5px 10px;
         }
       }
@@ -287,12 +321,17 @@
             border-radius: 50%;
           }
 
+          &__name {
+            font-size: 1.6rem;
+          }
+
           &__btn-add {
             color: $main-color;
             background-color: gray;
             text-align: center;
-            font-size: 40px;
+            font-size: 3.5rem;
             border-radius: 0px 0px 10px 10px;
+            padding-bottom: 10px;
           }
         }
       }
@@ -314,7 +353,7 @@
             border: none;
             border-radius: 50px;
             padding-left: 10px;
-            font-size: 1rem;
+            font-size: 1.4rem;
 
             &:focus {
               outline-style: none;
@@ -341,7 +380,7 @@
             }
 
             &__icon {
-              font-size: 30px;
+              font-size: 3rem;
 
               &--livestream {
                 color: crimson;
@@ -354,6 +393,10 @@
               &--feeling {
                 color: yellow;
               }
+            }
+
+            &__title {
+              font-size: 1.6rem;
             }
           }
         }
@@ -378,7 +421,11 @@
           border-radius: 50px;
 
           &__icon {
-            font-size: $size-right-icon;
+            font-size: 3rem;
+          }
+
+          &__subtitle {
+            font-size: 1.6rem;
           }
         }
 
@@ -415,21 +462,27 @@
               display: flex;
               flex-direction: column;
 
+              &__name {
+                font-size: 1.6rem;
+              }
+
               &__time {
-                font-weight: normal;
+                font-weight: 300;
                 color: lightgray;
-                font-size: 14px;
+                font-size: 1.2rem;
               }
             }
           }
 
           .news-edit {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
           }
         }
 
         .news-disc {
-          font-weight: normal;
+          font-size: 1.6rem;
+          font-weight: 300;
+          line-height: 2rem;
           padding: 0 10px;
         }
 
@@ -459,6 +512,8 @@
       .sponsor-group {
         border-bottom: 1px solid gray;
         padding-bottom: 20px;
+        font-size: 1.6rem;
+        line-height: 2rem;
 
         .sponsor {
           display: flex;
@@ -476,7 +531,6 @@
           &-detail {
             display: flex;
             flex-direction: column;
-            font-size: 15px;
 
             &__name {
               text-transform: capitalize;
@@ -489,7 +543,7 @@
 
             &__link {
               color: lightgray;
-              font-weight: 100;
+              font-weight: 300;
             }
           }
         }
@@ -498,6 +552,7 @@
       .contact {
         display: flex;
         flex-direction: column;
+        font-size: 1.6rem;
 
         &-header {
           display: flex;
@@ -507,7 +562,6 @@
 
           &-menu {
             display: flex;
-            font-size: $size-right-icon;
             gap: 20px;
           }
         }
@@ -518,7 +572,6 @@
           right: 20px;
 
           &__button {
-            font-size: $size-right-icon;
             background-color: rgb(122, 120, 120);
             padding: 10px;
             border-radius: 50%;
